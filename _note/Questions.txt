@@ -1,0 +1,4 @@
+1. 인텔리j 가 이클립스보다 더 좋은 이유
+
+2. bulid.gradle 에서 buildscript 란?
+
