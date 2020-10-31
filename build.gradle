@@ -1,0 +1,46 @@
+buildscript {
+
+    /* build.gradle 에서 사용하는 전역변수  */
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+
+    /* 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지 정하는 곳 */
+    repositories {
+        /**
+         * mavenCentral 은 본인이 만든 라이브러리 업로드가 어렵다 보니 공유가 어렵다.
+         * jcenter 는 문제점을 개선하여, 난이도를 낮추고 mavenCentral 에 같이 업로드 할 수 있도록 하였다.
+         */
+        mavenCentral()      // 기본적으로 많이 사용
+        jcenter()           // 최근에는 라이브러리 업로드 난이도 떄문에 jcenter도 많이 사용
+    }
+
+    /* dependencies 는 프로젝트 개발에 필요한 의존성들을 선언하는 곳 */
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 스프링 부트의 의존성을 관ㄴ리해 주는 플러그인
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+
+
+
+
+group 'org.joonsang.book'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // srpingboot 의 특정 버전을 명시하면 안된다. 전역변수 springBootVersion 에 의존하여, 버전 충돌 문제를 해결하는 식
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
