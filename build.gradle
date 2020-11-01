@@ -42,6 +42,15 @@ repositories {
 dependencies {
     // srpingboot 의 특정 버전을 명시하면 안된다. 전역변수 springBootVersion 에 의존하여, 버전 충돌 문제를 해결하는 식
     compile('org.springframework.boot:spring-boot-starter-web')
+
+    // 롬복
     compile('org.projectlombok:lombok')
+
+    // JPA
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    // h2
+    compile('com.h2database:h2')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
